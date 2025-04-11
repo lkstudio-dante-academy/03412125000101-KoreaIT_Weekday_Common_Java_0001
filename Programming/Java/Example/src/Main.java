@@ -16,6 +16,7 @@ import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes
 import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_02.CE01Example_02;
 import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_12.CE01Example_12;
 import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_13.CE01Example_13;
+import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_14.CE01Example_14;
 
 /*
  * 클래스 (Class) 란?
@@ -49,18 +50,19 @@ public class Main {
 	 * - Java 로 제작 된 프로그램이 실행 될 때 가장 먼저 호출되는 메서드를 의미한다. (+ 즉, 프로그램이 실행되면
 	 * 가장 먼저 호출되는 메서드이기 때문에 진입 메서드라고도 불린다.)
 	 *
-	 * 메인 메서드가 호출되었다는 것은 프로그램이 실행되었다는 것을 의미하며 메인 메서드가 종료되었다는 것은 프로그램이
-	 * 종료되었다는 것을 의미한다. (+ 즉, 메인 메서드의 실행 여부를 통해 프로그램의 실행 여부를 판단하는 것이
-	 * 가능하다.)
+	 * 메인 메서드가 호출되었다는 것은 프로그램이 실행되었다는 것을 의미하며 메인 메서드가 종료되었다는 것은
+	 * 프로그램이 종료되었다는 것을 의미한다. (+ 즉, 메인 메서드의 실행 여부를 통해 프로그램의 실행 여부를
+	 * 판단하는 것이 가능하다.)
 	 *
 	 * Java 명령문은 여러 파일에 작성하는 것이 가능하며 이때 해당 파일 중 어떤 파일에 존재하는 명령문을
 	 * 가장 먼저 실행 할지 Java 컴파일러에게 알려 줄 필요가 있으며 이를 위해 존재하는 것이 메인 메서드이다.
 	 */
 	/** 메인 메서드 */
 	public static void main(String[] args) {
-		CE01Example_01.start(args);
-		CE01Example_02.start(args);
+//		CE01Example_01.start(args);
+//		CE01Example_02.start(args);
 		CE01Example_12.start(args);
-		CE01Example_13.start(args);
+//		CE01Example_13.start(args);
+//		CE01Example_14.start(args);
 	}
 }
