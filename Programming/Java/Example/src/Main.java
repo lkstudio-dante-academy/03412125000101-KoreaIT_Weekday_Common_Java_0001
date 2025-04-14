@@ -18,6 +18,9 @@ import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes
 import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_04.CE01Example_04;
 import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_05.CE01Example_05;
 
+import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Training.Classes.Runtime.Training_01.CT01Training_01;
+import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Training.Classes.Runtime.Training_02.CT01Training_02;
+
 /*
  * 클래스 (Class) 란?
  * - 연관 된 변수 or 메서드 등을 그룹화시킬 수 있는 기능을 의미한다. (+ 즉, 클래스 내부에는 여러 기능이 존재한다는
@@ -61,8 +64,11 @@ public class Main {
 	public static void main(String[] args) {
 //		CE01Example_01.start(args);
 //		CE01Example_02.start(args);
-		CE01Example_03.start(args);
+//		CE01Example_03.start(args);
 //		CE01Example_04.start(args);
-//		CE01Example_05.start(args);
+		CE01Example_05.start(args);
+		
+//		CT01Training_01.start(args);
+//		CT01Training_02.start(args);
 	}
 }

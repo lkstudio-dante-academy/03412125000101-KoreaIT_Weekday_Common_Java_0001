@@ -1,6 +1,6 @@
 package _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_03;
 
-/**
+/*
  * 추상 클래스 (Abstract Class) 란?
  * - 일반적인 클래스와 달리 객체화 시키는 것이 불가능한 클래스를 의미한다. (+ 즉, new 키워드를 통해 객체화를 시도하면
  * 컴파일 에러가 발생한다는 것을 알 수 있다.)

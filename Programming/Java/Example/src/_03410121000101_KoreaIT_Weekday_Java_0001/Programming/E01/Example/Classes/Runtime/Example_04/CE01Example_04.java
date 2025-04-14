@@ -33,12 +33,80 @@ package _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classe
  * 다중 구현을 지원한다. (+ 즉, 특정 클래스가 여러 인터페이스를 구현하는 것이 가능하다.)
  */
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Random;
+
 /**
  * Example 4 (인터페이스)
  */
 public class CE01Example_04 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		IE01Writer_04 oWriter = createWriter();
+		
+		for(int i = 0; i < 10; ++i) {
+			oWriter.writeStr(String.format("%d", i + 1));
+		}
+	}
+	
+	/**
+	 * 출력 인터페이스
+	 */
+	private interface IE01Writer_04 {
+		/** 문자열을 출력한다 */
+		public void writeStr(String a_oStr);
+	}
+	
+	/**
+	 * 콘솔 출력자
+	 */
+	private static class CE01Writer_Console_04 implements IE01Writer_04 {
+		/** 문자열을 출력한다 */
+		@Override
+		public void writeStr(String a_oStr) {
+			System.out.println(a_oStr);
+		}
+	}
+	
+	/**
+	 * 파일 출력자
+	 */
+	private static class CE01Writer_File_04 implements IE01Writer_04 {
+		private BufferedWriter m_oWriter = null;
+		
+		/** 생성자 */
+		public CE01Writer_File_04(String a_oPath_File) {
+			try {
+				File oFile = new File(a_oPath_File);
+				FileWriter oWriter_File = new FileWriter(oFile);
+				
+				m_oWriter = new BufferedWriter(oWriter_File);
+			} catch(Exception a_oException) {
+				a_oException.printStackTrace();
+			}
+		}
+		
+		/** 문자열을 출력한다 */
+		@Override
+		public void writeStr(String a_oStr) {
+			try {
+				m_oWriter.write(a_oStr);
+				m_oWriter.newLine();
+				
+				m_oWriter.flush();
+			} catch(Exception a_oException) {
+				a_oException.printStackTrace();
+			}
+		}
+	}
+	
+	/** 출력자를 생성한다 */
+	private static IE01Writer_04 createWriter() {
+		Random oRandom = new Random();
+		
+		return (oRandom.nextInt(0, 2) <= 0) ?
+				new CE01Writer_Console_04() : new CE01Writer_File_04("P_E01Example_04_01.txt");
 	}
 }
