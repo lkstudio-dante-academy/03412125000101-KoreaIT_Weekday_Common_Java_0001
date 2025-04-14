@@ -1,4 +1,4 @@
-package _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_03;
+package Example.Example_03;
 
 /*
  * 추상 클래스 (Abstract Class) 란?
@@ -64,68 +64,19 @@ package _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classe
 /**
  * Example 3 (추상 클래스)
  */
-public class CE01Example_03 {
+public class CExample_03 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		/*
 		 * Base 클래스는 추상 클래스이기 때문에 아래와 같이 new 키워드를 통해서 직접적으로 객체화시키는 것이
 		 * 불가능하다는 것을 알 수 있다. (+ 즉, 컴파일 에러가 발생한다.)
 		 */
-//		CE01Base_03 oBaseA = new CE01Base_03(10, 3.14f);
+//		CBase oBaseA = new CBase(10, 3.14f);
 		
-		CE01Derived_03 oBaseB = new CE01Derived_03(10, 3.14f, "Hello, World!");
+		CDerived oBaseB = new CDerived(10, 3.14f, "Hello, World!");
 		oBaseB.abstractMethod();
 		
 		System.out.println("\n=====> 자식 클래스 정보 <=====");
 		oBaseB.showInfo();
-	}
-	
-	/**
-	 * 부모 클래스
-	 */
-	private static abstract class CE01Base_03 {
-		private int m_nVal = 0;
-		private float m_fVal = 0.0f;
-		
-		/** 생성자 */
-		public CE01Base_03(int a_nVal, float a_fVal) {
-			this.m_nVal = a_nVal;
-			this.m_fVal = a_fVal;
-		}
-		
-		/** 추상 메서드 */
-		public abstract void abstractMethod();
-		
-		/** 정보를 출력한다 */
-		public void showInfo() {
-			System.out.printf("정수 : %d\n", m_nVal);
-			System.out.printf("실수 : %f\n", m_fVal);
-		}
-	}
-	
-	/**
-	 * 자식 클래스
-	 */
-	private static class CE01Derived_03 extends CE01Base_03 {
-		private String m_oStr = "";
-		
-		/** 생성자 */
-		public CE01Derived_03(int a_nVal, float a_fVal, String a_oStr) {
-			super(a_nVal, a_fVal);
-			this.m_oStr = a_oStr;
-		}
-		
-		/** 추상 메서드 */
-		@Override
-		public void abstractMethod() {
-			System.out.println("자식 클래스에서 추상 메서드를 구현했습니다.");
-		}
-		
-		/** 정보를 출력한다 */
-		@Override
-		public void showInfo() {
-			super.showInfo();
-			System.out.printf("문자열 : %s\n", m_oStr);
-		}
 	}
 }

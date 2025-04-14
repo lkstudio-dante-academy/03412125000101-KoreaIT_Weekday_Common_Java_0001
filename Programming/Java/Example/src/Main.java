@@ -12,14 +12,14 @@
  * Java 는 패키지 단위로 연관 된 기능이 그룹화되어있기 때문에 특정 패키지를 가져옴으로서 해당 패키지 하위에 존재하는
  * 여러 기능을 활용하는 것이 가능하다.
  */
-import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_01.CE01Example_01;
-import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_02.CE01Example_02;
-import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_03.CE01Example_03;
-import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_04.CE01Example_04;
-import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_05.CE01Example_05;
+import Example.Example_01.CExample_01;
+import Example.Example_02.CExample_02;
+import Example.Example_03.CExample_03;
+import Example.Example_04.CExample_04;
+import Example.Example_05.CExample_05;
 
-import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Training.Classes.Runtime.Training_01.CT01Training_01;
-import _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Training.Classes.Runtime.Training_02.CT01Training_02;
+import Training.Training_01.CTraining_01;
+import Training.Training_02.CTraining_02;
 
 /*
  * 클래스 (Class) 란?
@@ -62,13 +62,13 @@ public class Main {
 	 */
 	/** 메인 메서드 */
 	public static void main(String[] args) {
-//		CE01Example_01.start(args);
-//		CE01Example_02.start(args);
-//		CE01Example_03.start(args);
-//		CE01Example_04.start(args);
-		CE01Example_05.start(args);
+//		CExample_01.start(args);
+//		CExample_02.start(args);
+//		CExample_03.start(args);
+//		CExample_04.start(args);
+//		CExample_05.start(args);
 		
-//		CT01Training_01.start(args);
-//		CT01Training_02.start(args);
+		CTraining_01.start(args);
+//		CTraining_02.start(args);
 	}
 }

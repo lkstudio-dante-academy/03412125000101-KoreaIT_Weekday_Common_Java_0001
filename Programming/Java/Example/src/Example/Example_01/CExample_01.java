@@ -6,12 +6,12 @@
  * Java 에서 패키지는 디렉토리를 의미하기 때문에 패키지에 명시하는 경로는 반드시 파일 시스템 상에 경로와 일치해야한다.
  * (+ 즉, 경로가 일치하지 않으면 컴파일 에러가 발생한다는 것을 알 수 있다.)
  */
-package _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_01;
+package Example.Example_01;
 
 /**
  * Example 1 (기초)
  */
-public class CE01Example_01 {
+public class CExample_01 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		/*

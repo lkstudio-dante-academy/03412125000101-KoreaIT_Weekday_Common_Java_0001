@@ -1,4 +1,4 @@
-package _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classes.Runtime.Example_02;
+package Example.Example_02;
 
 /*
  * 자료형 (Data Type) 이란?
@@ -93,7 +93,7 @@ package _03410121000101_KoreaIT_Weekday_Java_0001.Programming.E01.Example.Classe
 /**
  * Example 2 (자료형)
  */
-public class CE01Example_02 {
+public class CExample_02 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		byte nByte = Byte.MAX_VALUE;
