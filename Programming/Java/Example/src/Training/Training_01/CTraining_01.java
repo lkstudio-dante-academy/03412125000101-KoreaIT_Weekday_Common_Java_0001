@@ -12,6 +12,11 @@ public class CTraining_01 {
 		int nMenu = 0;
 		CCanvas oCanvas = new CCanvas();
 		
+		/*
+		 * Scanner 클래스란?
+		 * - 스트림으로부터 데이터를 입력 받는 다양한 기능을 제공하는 클래스를 의미한다. (+ 즉, Scanner 클래스를
+		 * 활용하면 사용자로부터 데이터를 입력 받는 것이 가능하다.)
+		 */
 		Scanner oScanner = new Scanner(System.in);
 		
 		do {
@@ -65,9 +70,21 @@ public class CTraining_01 {
 				"빨간색", "녹색", "파란색"
 		};
 		
+		/*
+		 * Random 클래스란?
+		 * - 난수를 생성하기 위한 다양한 기능을 제공하는 클래스를 의미한다. (+ 즉, Random 클래스를 활용하면
+		 * 실행 될 때마다 결과가 달라지는 프로그램을 제작하는 것이 가능하다.)
+		 *
+		 * Ex)
+		 * Random oRandom = new Random();
+		 * int nVal = oRandom.nextInt(1, 10);
+		 *
+		 * 위와 같이 nextInt 메서드를 활용하면 특정 범위 내에 존재하는 수를 무작위로 추출하는 것이 가능하다. (+ 즉,
+		 * nextInt 메서드를 호출 할 때마다 다른 결과가 나온다는 것을 알 수 있다.)
+		 */
 		Random oRandom = new Random();
-		int nIdx = oRandom.nextInt(0, oColors.length);
 		
+		int nIdx = oRandom.nextInt(0, oColors.length);
 		String oColor = oColors[nIdx];
 		
 		switch(a_nMenu) {
