@@ -17,6 +17,7 @@ import Example.Example_02.CExample_02;
 import Example.Example_03.CExample_03;
 import Example.Example_04.CExample_04;
 import Example.Example_05.CExample_05;
+import Example.Example_06.CExample_06;
 
 import Training.Training_01.CTraining_01;
 import Training.Training_02.CTraining_02;
@@ -67,8 +68,9 @@ public class Main {
 //		CExample_03.start(args);
 //		CExample_04.start(args);
 //		CExample_05.start(args);
+		CExample_06.start(args);
 		
-		CTraining_01.start(args);
+//		CTraining_01.start(args);
 //		CTraining_02.start(args);
 	}
 }
