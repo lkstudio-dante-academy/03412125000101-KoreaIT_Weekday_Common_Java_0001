@@ -93,7 +93,7 @@ package Example.Example_02;
 /**
  * Example 2 (자료형)
  */
-public class CExample_02 {
+public class CE01Example_02 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		byte nByte = Byte.MAX_VALUE;

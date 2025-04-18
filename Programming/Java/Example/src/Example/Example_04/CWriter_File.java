@@ -46,7 +46,7 @@ public class CWriter_File implements IWriter {
 			/*
 			 * flush 메서드란?
 			 * - 입/출력 버퍼를 비우는 역할을 수행한다. (+ 즉, flush 메서드를 활용하면 입/출력 버퍼에 존재하는
-			 * 데이터를 즉시 목적지로 이동시키는 것이 가능하다.)
+			 * 데이터를 즉시 목적지로 이동 시키는 것이 가능하다.)
 			 */
 			m_oWriter.flush();
 		} catch(Exception a_oException) {

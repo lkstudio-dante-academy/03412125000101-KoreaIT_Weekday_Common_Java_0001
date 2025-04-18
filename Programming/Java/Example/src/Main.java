@@ -7,20 +7,23 @@
  * 이미 완성 된 기능을 재활용함으로서 작성해야되는 명령문을 줄이는 것이 가능하다.)
  *
  * 패키지 (Package) 란?
- * - 다양한 클래스를 그룹화시키는 기능을 의미한다. (+ 즉, 패키지 내부에는 여러 기능이 모여있다는 것을 알 수 있다.)
+ * - 다양한 클래스를 그룹화 시키는 기능을 의미한다. (+ 즉, 패키지 내부에는 여러 기능이 모여있다는 것을 알 수 있다.)
  *
  * Java 는 패키지 단위로 연관 된 기능이 그룹화되어있기 때문에 특정 패키지를 가져옴으로서 해당 패키지 하위에 존재하는
  * 여러 기능을 활용하는 것이 가능하다.
  */
-import Example.Example_01.CExample_01;
-import Example.Example_02.CExample_02;
-import Example.Example_03.CExample_03;
-import Example.Example_04.CExample_04;
-import Example.Example_05.CExample_05;
-import Example.Example_06.CExample_06;
+import Example.Example_01.CE01Example_01;
+import Example.Example_02.CE01Example_02;
+import Example.Example_03.CE01Example_03;
+import Example.Example_04.CE01Example_04;
+import Example.Example_05.CE01Example_05;
+import Example.Example_06.CE01Example_06;
 
-import Training.Training_01.CTraining_01;
-import Training.Training_02.CTraining_02;
+import Practice.Practice_01.CP01Practice_01;
+import Practice.Practice_02.CP01Practice_02;
+
+import Training.Training_01.CT01Training_01;
+import Training.Training_02.CT01Training_02;
 
 /*
  * 클래스 (Class) 란?
@@ -63,14 +66,17 @@ public class Main {
 	 */
 	/** 메인 메서드 */
 	public static void main(String[] args) {
-//		CExample_01.start(args);
-//		CExample_02.start(args);
-//		CExample_03.start(args);
-//		CExample_04.start(args);
-//		CExample_05.start(args);
-		CExample_06.start(args);
+//		CE01Example_01.start(args);
+//		CE01Example_02.start(args);
+//		CE01Example_03.start(args);
+//		CE01Example_04.start(args);
+//		CE01Example_05.start(args);
+//		CE01Example_06.start(args);
+
+//		CP01Practice_01.start(args);
+//		CP01Practice_02.start(args);
 		
-//		CTraining_01.start(args);
-//		CTraining_02.start(args);
+		CT01Training_01.start(args);
+//		CT01Training_02.start(args);
 	}
 }

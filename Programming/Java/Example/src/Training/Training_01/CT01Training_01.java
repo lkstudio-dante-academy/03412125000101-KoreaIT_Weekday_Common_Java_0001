@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Training 1
  */
-public class CTraining_01 {
+public class CT01Training_01 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		int nMenu = 0;

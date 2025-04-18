@@ -44,7 +44,7 @@ import java.util.Random;
 /**
  * Example 4 (인터페이스)
  */
-public class CExample_04 {
+public class CE01Example_04 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		IWriter oWriter = createWriter();

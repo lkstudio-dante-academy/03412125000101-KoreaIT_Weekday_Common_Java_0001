@@ -64,11 +64,11 @@ package Example.Example_03;
 /**
  * Example 3 (추상 클래스)
  */
-public class CExample_03 {
+public class CE01Example_03 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		/*
-		 * Base 클래스는 추상 클래스이기 때문에 아래와 같이 new 키워드를 통해서 직접적으로 객체화시키는 것이
+		 * Base 클래스는 추상 클래스이기 때문에 아래와 같이 new 키워드를 통해서 직접적으로 객체화 시키는 것이
 		 * 불가능하다는 것을 알 수 있다. (+ 즉, 컴파일 에러가 발생한다.)
 		 */
 //		CBase oBaseA = new CBase(10, 3.14f);
