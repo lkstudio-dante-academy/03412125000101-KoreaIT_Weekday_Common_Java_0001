@@ -18,13 +18,14 @@ package Example.Example_04;
  * }
  *
  * class CSomeClass implements ISomeInterface {
+ * 		@Override
  * 		public void someMethod() {
  * 			// Do Something
  * 		}
  * }
  *
- * ISomeInterface oSomeInterface = new CSomeClass();
- * oSomeInterface.someMethod();
+ * ISomeInterface oSomeObj = new CSomeClass();
+ * oSomeObj.someMethod();
  *
  * 위와 같이 인터페이스에도 다형성의 규칙이 성립하기 때문에 특정 클래스가 인터페이스를 구현하고 있다면
  * 해당 클래스를 통해 생성 된 객체를 인터페이스 변수로 참조하는 것이 가능하다.
@@ -50,7 +51,41 @@ public class CE01Example_04 {
 		IWriter oWriter = createWriter();
 		
 		for(int i = 0; i < 10; ++i) {
-			oWriter.writeStr(String.format("%d", i + 1));
+			/*
+			 * String.format 메서드는 형식화 된 문자열을 반환하는 역할을 수행한다. (+ 즉, String.format 메서드를
+			 * 활용하면 다양한 문장을 작성하는 것이 가능하다.)
+			 */
+			String oStr = String.format("%d", i + 1);
+			oWriter.writeStr(oStr);
+		}
+		
+		/*
+		 * instanceof 키워드란?
+		 * - 객체가 특정 클래스로부터 파생 되었거나 인터페이스를 구현 중인지 검사하는 역할을 수행하는 키워드를
+		 * 의미한다. (+ 즉, instanceof 키워드를 활용하면 안전한 다운 캐스팅이 가능하다는 것을 알 수 있다.)
+		 *
+		 * Ex)
+		 * class CBase {
+		 * 		// Do Something
+		 * }
+		 *
+		 * class CDerived extends CBase {
+		 * 		// Do Something
+		 * }
+		 *
+		 * CBase oBaseA = new CBase();
+		 * CBase oBaseB = new CDerived();
+		 *
+		 * boolean bIsTrueA = oBaseA instanceof CDerived;			<- False
+		 * boolean bIsTrueB = oBaseB instanceof CDerived;			<- True
+		 *
+		 * 위와 같이 oBaseA 변수가 참조하는 대상은 CDerived 객체가 아니기 때문에 False 가 반환 되는 반면
+		 * oBaseB 변수는 CDerived 객체를 참조하고 있기 때문에 True 가 반환 된다는 것을 알 수 있다.
+		 */
+		// 제거 가능 할 경우
+		if(oWriter instanceof IReleasable) {
+			IReleasable oReleasable = (IReleasable)oWriter;
+			oReleasable.release();
 		}
 	}
 	

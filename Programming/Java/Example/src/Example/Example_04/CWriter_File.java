@@ -7,7 +7,7 @@ import java.io.FileWriter;
 /**
  * 파일 출력자
  */
-public class CWriter_File implements IWriter {
+public class CWriter_File implements IReleasable, IWriter {
 	/*
 	 * BufferedWriter 클래스란?
 	 * - 데이터를 스트림에 출력하는 역할을 수행하는 클래스를 의미한다. (+ 즉, BufferedWriter 클래스를 활용하면
@@ -36,10 +36,28 @@ public class CWriter_File implements IWriter {
 		}
 	}
 	
+	/** 제거 한다 */
+	@Override
+	public void release() {
+		try {
+			/*
+			 * close 메서드는 스트림을 제거하는 역할을 수행한다. (+ 즉, close 메서드를 호출하고 나면 더이상 스트림에
+			 * 데이터를 출력하거나 읽어들이는 것이 불가능하다.)
+			 */
+			m_oWriter.close();
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
+	}
+	
 	/** 문자열을 출력한다 */
 	@Override
 	public void writeStr(String a_oStr) {
 		try {
+			/*
+			 * write 메서드는 스트림에 데이터를 출력하는 역할을 수행한다. (+ 즉, write 메서드를 활용하면 파일 등에
+			 * 데이터를 기록하는 것이 가능하다.)
+			 */
 			m_oWriter.write(a_oStr);
 			m_oWriter.newLine();
 			

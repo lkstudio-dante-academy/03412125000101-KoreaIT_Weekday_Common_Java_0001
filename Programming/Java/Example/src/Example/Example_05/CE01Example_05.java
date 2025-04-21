@@ -15,6 +15,13 @@ package Example.Example_05;
  * 따라서 Java 는 이와 같은 상황을 유연하게 대처하기 위한 예외 처리 기능을 제공하며 해당 기능을 활용하면 프로그램의
  * 안정성을 향상 시키는 것이 가능하다.
  *
+ * Ex)
+ * try {
+ * 		// 예외 발생 가능성이 존재하는 명령문
+ * } catch(Exception oException) {
+ * 		// 예외 처리 명령문
+ * }
+ *
  * Java 예외 처리 관련 키워드
  * - try
  * - catch
@@ -48,6 +55,27 @@ package Example.Example_05;
  * 만약 catch 블럭 작성을 생략하고 싶다면 반드시 해당 명령문을 실행하고 있는 메서드에 throws 키워드를 명시해서
  * 메서드를 호출한 곳에서 예외를 처리하도록 해줘야한다. (+ 즉, try 블럭에서 발생한 예외가 처리 되지 않을 경우
  * 메서드 호출 순서를 역행하면서 예외가 전파된다는 것을 알 수 있다.)
+ *
+ * 사용자 정의 예외란?
+ * - Java 에서 기본적으로 제공하는 예외 이외에 사용자 (프로그래머) 가 필요에 따라 직접 정의해서 사용하는 예외를
+ * 의미한다. (+ 즉, 사용자 정의 예외를 활용하면 제작하는 프로그램에 특화 된 예외를 정의하는 것이 가능하다.)
+ *
+ * Java 에서 예외는 클래스를 통해 정의되기 때문에 사용자 정의 예외도 클래스를 통해 정의하는 것이 가능하며 이는
+ * Exception 클래스를 상속하는 것으로 정의 가능하다.
+ *
+ * Ex)
+ * class CSomeException extends Exception {
+ * 		public CSomeException(String a_oMsg) {
+ * 			super(a_oMsg);
+ * 		}
+ * }
+ *
+ * public void SomeMethod() throws CSomeException {
+ * 		throw new CSomeException();
+ * }
+ *
+ * 위와 같이 Exception 클래스를 상속해서 예외 클래스를 정의하고 나면 해당 클래스를 통해 생성 된 객체를
+ * throw 키워드를 통해서 전파 시키는 것이 가능하다. (+ 즉, 예외 발생이 가능하다는 것을 알 수 있다.)
  */
 
 import java.util.Scanner;
@@ -69,15 +97,38 @@ public class CE01Example_05 {
 			System.out.printf("%d + %d = %d\n", nValA, nValB, nValA + nValB);
 			System.out.printf("%d - %d = %d\n", nValA, nValB, nValA - nValB);
 			System.out.printf("%d * %d = %d\n", nValA, nValB, nValA * nValB);
+			
+			/*
+			 * / (나누기 연산자), % (나머지 연산자) 는 우항에 0 이 올 경우 내부적으로 예외가 발생하는 특징이
+			 * 존재한다. (+ 즉, 발생하는 예외를 처리하지 않을 경우 프로그램이 종료 된다는 것을 알 수 있다.)
+			 *
+			 * 단, / (나누기 연산자) 는 우항에 실수 0 이 올 경우 예외가 발생하지 않고 infinite 로 처리된다.
+			 * (+ 즉, 계산이 불가능하다는 것을 알 수 있다.)o
+			 */
 			System.out.printf("%d / %d = %f\n", nValA, nValB, nValA / (float)nValB);
 			System.out.printf("%d %% %d = %d\n", nValA, nValB, nValA % nValB);
 		} catch(Exception oException) {
-			System.out.printf("\n%s 예외가 발생했습니다.\n", oException.getMessage());
+			System.out.printf("\n%s 가 발생했습니다.\n", oException.getMessage());
+		}
+		
+		try {
+			invokeException();
+			
+			/*
+			 * invokeException 메서드 내부에서 예외가 발생 했기 때문에 아래 명령문은 실행 되지 않는다는 것을
+			 * 알 수 있다. (+ 즉, 예외가 발생한 라인 이후에 명령문은 실행 되지 않는다는 것을 의미한다.)
+			 */
+			System.out.println("예외가 발생해서 해당 메세지는 출력 되지 않습니다.");
+		} catch(Exception oException) {
+			System.out.printf("\n%s 가 발생했습니다.\n", oException.getMessage());
 		}
 	}
 	
-	/** 예외를 발생시킨다 */
+	/** 예외를 발생 시킨다 */
 	private static void invokeException() throws Exception {
+		/*
+		 * 아래와 같이 throw 키워드를 활용하면 예외를 의도적으로 발생 시키는 것이 가능하다.
+		 */
 		throw new CException("사용자 정의 예외");
 	}
 }

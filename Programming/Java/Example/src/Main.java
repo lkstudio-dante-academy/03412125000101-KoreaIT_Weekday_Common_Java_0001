@@ -18,6 +18,17 @@ import Example.Example_03.CE01Example_03;
 import Example.Example_04.CE01Example_04;
 import Example.Example_05.CE01Example_05;
 import Example.Example_06.CE01Example_06;
+import Example.Example_07.CE01Example_07;
+import Example.Example_08.CE01Example_08;
+import Example.Example_09.CE01Example_09;
+import Example.Example_10.CE01Example_10;
+import Example.Example_11.CE01Example_11;
+import Example.Example_12.CE01Example_12;
+import Example.Example_13.CE01Example_13;
+import Example.Example_14.CE01Example_14;
+import Example.Example_15.CE01Example_15;
+import Example.Example_16.CE01Example_16;
+import Example.Example_17.CE01Example_17;
 
 import Practice.Practice_01.CP01Practice_01;
 import Practice.Practice_02.CP01Practice_02;
@@ -69,14 +80,25 @@ public class Main {
 //		CE01Example_01.start(args);
 //		CE01Example_02.start(args);
 //		CE01Example_03.start(args);
-//		CE01Example_04.start(args);
+		CE01Example_04.start(args);
 //		CE01Example_05.start(args);
 //		CE01Example_06.start(args);
+//		CE01Example_07.start(args);
+//		CE01Example_08.start(args);
+//		CE01Example_09.start(args);
+//		CE01Example_10.start(args);
+//		CE01Example_11.start(args);
+//		CE01Example_12.start(args);
+//		CE01Example_13.start(args);
+//		CE01Example_14.start(args);
+//		CE01Example_15.start(args);
+//		CE01Example_16.start(args);
+//		CE01Example_17.start(args);
 
 //		CP01Practice_01.start(args);
 //		CP01Practice_02.start(args);
 		
-		CT01Training_01.start(args);
+//		CT01Training_01.start(args);
 //		CT01Training_02.start(args);
 	}
 }

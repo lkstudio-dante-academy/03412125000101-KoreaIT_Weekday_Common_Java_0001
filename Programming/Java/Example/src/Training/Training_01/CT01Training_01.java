@@ -16,6 +16,13 @@ public class CT01Training_01 {
 		 * Scanner 클래스란?
 		 * - 스트림으로부터 데이터를 입력 받는 다양한 기능을 제공하는 클래스를 의미한다. (+ 즉, Scanner 클래스를
 		 * 활용하면 사용자로부터 데이터를 입력 받는 것이 가능하다.)
+		 *
+		 * Ex)
+		 * Scanner oScanner = new Scanner(System.in);
+		 * int nVal = oScanner.nextInt();
+		 *
+		 * 위와 같이 System.in 과 nextInt 메서드를 활용하면 콘솔 창으로부터 정수 데이터를 입력 받는 것이 가능하다.
+		 * (+ 즉, 사용자와 상호 작용이 가능한 프로그램을 제작하는 것이 가능하다.)
 		 */
 		Scanner oScanner = new Scanner(System.in);
 		
