@@ -58,7 +58,7 @@ public class CE01Example_08 {
 			/*
 			 * Field 객체를 활용하면 특정 객체가 지니고 있는 멤버 변수의 데이터를 변경하거나 가져오는 것이 가능하다.
 			 *
-			 * 단, Field 객체를 통해 private 수준으로 보호 되고 있는 멤버를 제어하기 위해서는
+			 * 단, 리플렉션 객체를 통해 private 수준으로 보호 되고 있는 멤버를 제어하기 위해서는
 			 * setAccessible 메서드를 활용해야한다. (+ 즉, setAccessible 메서드를 통해 private 멤버에 접근을
 			 * 허용하는 것이 가능하다.)
 			 */

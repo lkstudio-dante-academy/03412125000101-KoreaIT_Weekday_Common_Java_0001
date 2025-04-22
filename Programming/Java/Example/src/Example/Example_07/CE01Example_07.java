@@ -56,7 +56,7 @@ public class CE01Example_07 {
 			oListValues.add(oVal);
 		}
 		
-		System.out.println("\n=====> 리스트 요소 <=====");
+		System.out.println("=====> 리스트 요소 <=====");
 		
 		for(int i = 0; i < oListValues.size(); ++i) {
 			/*

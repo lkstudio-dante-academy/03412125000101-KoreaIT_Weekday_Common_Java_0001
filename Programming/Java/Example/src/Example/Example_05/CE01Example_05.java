@@ -126,9 +126,17 @@ public class CE01Example_05 {
 	
 	/** 예외를 발생 시킨다 */
 	private static void invokeException() throws Exception {
-		/*
-		 * 아래와 같이 throw 키워드를 활용하면 예외를 의도적으로 발생 시키는 것이 가능하다.
-		 */
-		throw new CException("사용자 정의 예외");
+		try {
+			/*
+			 * 아래와 같이 throw 키워드를 활용하면 예외를 의도적으로 발생 시키는 것이 가능하다.
+			 */
+			throw new CException("사용자 정의 예외");
+		} finally {
+			/*
+			 * 아래와 같이 finally 블럭 내부에 존재하는 명령문은 예외 발생 여부와 상관 없이
+			 * 항상 실행 된다는 것을 알 수 있다.
+			 */
+			System.out.println("finally 블럭이 실행되었습니다.");
+		}
 	}
 }

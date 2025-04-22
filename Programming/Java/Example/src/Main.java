@@ -80,11 +80,11 @@ public class Main {
 //		CE01Example_01.start(args);
 //		CE01Example_02.start(args);
 //		CE01Example_03.start(args);
-		CE01Example_04.start(args);
+//		CE01Example_04.start(args);
 //		CE01Example_05.start(args);
 //		CE01Example_06.start(args);
 //		CE01Example_07.start(args);
-//		CE01Example_08.start(args);
+		CE01Example_08.start(args);
 //		CE01Example_09.start(args);
 //		CE01Example_10.start(args);
 //		CE01Example_11.start(args);
