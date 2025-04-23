@@ -158,7 +158,8 @@ public class CE01Example_10 {
 		
 		/*
 		 * 아래와 같이 익명 내부 클래스 또한 지역 내부 클래스와 마찬가지로 해당 클래스로 생성 된 객체를 직접적으로
-		 * 참조하는 것이 불가능하다.
+		 * 참조하는 것이 불가능하다. (+ 즉, 클래스 이름이 존재하지 않기 때문에 직접적인 참조가 불가능하다는 것을
+		 * 알 수 있다.)
 		 */
 		INested oInner_AnonymousA = oOuterA.getInner_Anonymous();
 		INested oInner_AnonymousB = oOuterA.getInner_Anonymous();

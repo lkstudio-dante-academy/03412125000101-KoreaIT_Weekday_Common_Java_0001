@@ -1,5 +1,42 @@
 package Example.Example_11;
 
+/*
+ * 람다 (Lambda) 란?
+ * - 이름이 없는 메서드를 구현 할 수 있는 기능을 의미한다. (+ 즉, 람다는 일반적인 메서드와 달리 재사용을 위해서
+ * 구현되는 메서드가 아니라는 것을 알 수 있다.)
+ *
+ * 람다는 일회성 메서드를 구현하는데 주로 활용되며 다른 메서드 내부에 구현되기 때문에 내장 메서드라고도 불린다.
+ * (+ 즉, 람다는 자신을 감싸고 있는 외부 메서드의 일부라는 것을 알 수 있다.)
+ *
+ * 람다는 자신을 감싸고 있는 외부 메서드의 일부이기 때문에 외부 메서드에 존재하는 지역 변수에 접근하는 것이 가능하다.
+ * (+ 즉, 외부 메서드에 존재하는 지역 변수는 람다의 입력으로 전달 할 필요가 없다는 것을 알 수 있다.)
+ *
+ * 단, 람다는 이름이 존재하지 않기 때문에 람다를 호출하기 위해서는 람다를 참조 할 자료형이 필요하며
+ * 이때 인터페이스를 활용 할 수 있다. (+ 즉, 인터페이스는 단순한 상호 작용을 위한 수단이기 때문에 이를 통해
+ * 람다와 상호 작용을 한다는 것을 알 수 있다.)
+ *
+ * 또한 람다는 이름이 없는 하나의 메서드를 구현하는 기능이기 때문에 추상 메서드가 2 개 이상 존재하는 인터페이스를
+ * 통해서는 구현하는 것이 불가능하다. (+ 즉, 추상 메서드가 1 개만 존재하는 인터페이스를 통해서만 람다를 구현하는
+ * 것이 가능하다.)
+ *
+ * Java 람다 구현 방법
+ * - 매개 변수 + 람다 몸체
+ *
+ * Ex)
+ * interface ISomeInterface {
+ * 		public void someMethod(int a_nValA, int a_nValB);
+ * }
+ *
+ * ISomeInterface oLambda = (a_nValA, a_nValB) -> {
+ * 		// Do Something
+ * };
+ *
+ * oLambda.someMethod(10, 20);
+ *
+ * 위와 같이 람다는 단독으로 구현하는 것을 불가능하며 인터페이스를 통해 람다를 호출 할 수 있다는 것을 알 수 있다.
+ * 또한 람다의 매개 변수에는 자료형을 생략해야한다. (+ 즉, 자료형을 명시하면 컴파일 에러가 발생한다는 것을 알 수 있다.)
+ */
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -26,7 +63,7 @@ public class CE01Example_11 {
 		sortValues(oListValues, new ICompare() {
 			/** 값을 비교한다 */
 			@Override
-			public int compare(int a_nLhs, int a_nRhs) {
+			public int compare(int a_nLhs, int a_nRhs) {;
 				return a_nLhs - a_nRhs;
 			}
 		});
