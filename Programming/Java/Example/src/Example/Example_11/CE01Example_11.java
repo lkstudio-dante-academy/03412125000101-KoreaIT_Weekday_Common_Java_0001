@@ -47,7 +47,7 @@ public class CE01Example_11 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		Random oRandom = new Random();
-		ArrayList<Integer> oListValues = new ArrayList<>();
+		ArrayList<Integer> oListValues = new ArrayList<Integer>();
 		
 		for(int i = 0; i < 10; ++i) {
 			oListValues.add(oRandom.nextInt(1, 100));

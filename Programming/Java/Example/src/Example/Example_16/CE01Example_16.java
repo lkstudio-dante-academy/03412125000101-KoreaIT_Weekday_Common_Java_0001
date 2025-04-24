@@ -1,7 +1,7 @@
 package Example.Example_16;
 
 /**
- * Example 16 (쓰레드 - 1)
+ * Example 16 (디자인 패턴)
  */
 public class CE01Example_16 {
 	/** 초기화 */

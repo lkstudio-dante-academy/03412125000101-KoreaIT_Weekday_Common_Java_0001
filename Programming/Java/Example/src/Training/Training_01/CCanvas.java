@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * 캔버스
  */
 public class CCanvas {
-	private ArrayList<CShape> m_oShapes = new ArrayList<>();
+	private ArrayList<CShape> m_oShapes = new ArrayList<CShape>();
 	
 	/** 도형을 추가한다 */
 	public void addShape(CShape a_oShape) {

@@ -1,7 +1,7 @@
 package Example.Example_15;
 
 /**
- * Example 15 (MVC 패턴)
+ * Example 15 (컬렉션 - 2)
  */
 public class CE01Example_15 {
 	/** 초기화 */

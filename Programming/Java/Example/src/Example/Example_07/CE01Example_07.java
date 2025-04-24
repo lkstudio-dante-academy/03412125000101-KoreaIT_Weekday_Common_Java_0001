@@ -22,7 +22,7 @@ package Example.Example_07;
  * - Double				<- double
  *
  * Ex)
- * ArrayList<Integer> oListValues = new ArrayList<>();
+ * ArrayList<Integer> oListValues = new ArrayList<Integer>();
  * oListValues.add(1);
  * oListValues.add(2);
  * oListValues.add(3);
@@ -45,7 +45,7 @@ public class CE01Example_07 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		Random oRandom = new Random();
-		ArrayList<Integer> oListValues = new ArrayList<>();
+		ArrayList<Integer> oListValues = new ArrayList<Integer>();
 		
 		for(int i = 0; i < 10; ++i) {
 			/*
