@@ -46,6 +46,9 @@ import java.util.Random;
 public class CE01Example_11 {
 	/** 초기화 */
 	public static void start(String[] args) {
+		IWriter oLambda = getLambda(10);
+		oLambda.writeVal();
+		
 		Random oRandom = new Random();
 		ArrayList<Integer> oListValues = new ArrayList<Integer>();
 		
@@ -53,7 +56,7 @@ public class CE01Example_11 {
 			oListValues.add(oRandom.nextInt(1, 100));
 		}
 		
-		System.out.println("=====> 리스트 요소 <=====");
+		System.out.println("\n=====> 리스트 요소 <=====");
 		printValues(oListValues);
 		
 		/*
@@ -82,6 +85,29 @@ public class CE01Example_11 {
 		
 		System.out.println("\n=====> 리스트 요소 - 내름 차순 정렬 후 <=====");
 		printValues(oListValues);
+	}
+	
+	/**
+	 * 출력 인터페이스
+	 */
+	private interface IWriter {
+		/** 값을 출력한다 */
+		public void writeVal();
+	}
+	
+	/** 람다를 반환한다 */
+	private static IWriter getLambda(int a_nVal) {
+		return () -> {
+			/*
+			 * 람다 내부에서는 외부 지역에 존재하는 지역 변수를 해당 변수의 생명 주기와 상관 없이 접근하는 것이
+			 * 가능하다.
+			 *
+			 * 람다는 구현 된 지역의 일부이기 때문에 해당 지역에 선언 된 지역 변수를 람다 내부에서 접근하기 위해
+			 * 해당 변수에 대한 사본을 지니고 있기 때문이다. (+ 즉, 외부 지역에 선언 된 지역 변수가 메모리 상에서
+			 * 제거 되어도 람다 내부에서는 해당 변수에 자유롭게 접근 가능하다는 것을 알 수 있다.)
+			 */
+			System.out.printf("람다 : %d\n", a_nVal);
+		};
 	}
 	
 	/** 값을 정렬한다 */
