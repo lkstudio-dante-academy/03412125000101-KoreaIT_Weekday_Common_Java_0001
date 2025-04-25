@@ -87,6 +87,10 @@ public class CE01Example_12 {
 		printValues(oListValues);
 	}
 	
+	/*
+	 * 아래와 같이 extends 키워드를 통해 제네릭 형식 인자의 자료형을 특정 클래스 or 인터페이스를 따르는 자료형으로
+	 * 제한하는 것이 가능하다.
+	 */
 	/** 값을 정렬한다 */
 	private static <T extends Comparable<T>> void sortValues(ArrayList<T> a_oListValues, int a_nLeft, int a_nRight) {
 		// 값 정렬이 불가능 할 경우

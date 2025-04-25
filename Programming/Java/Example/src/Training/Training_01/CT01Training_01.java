@@ -67,7 +67,7 @@ public class CT01Training_01 {
 	}
 	
 	/**
-	 * 상수
+	 * 메뉴
 	 */
 	private static final int MENU_ADD_LINE = 1;
 	private static final int MENU_ADD_TRIANGLE = 2;

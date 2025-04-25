@@ -60,12 +60,45 @@ package Practice.Practice_01;
  * 프로그램을 종료합니다.
  */
 
+import java.util.Scanner;
+
 /**
  * Practice 1
  */
 public class CP01Practice_01 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		int nMenu = 0;
+		CManager_Member oManager_Member = new CManager_Member();
+		
+		Scanner oScanner = new Scanner(System.in);
+		
+		do {
+			printMenu();
+			nMenu = oScanner.nextInt();
+		} while(nMenu != MENU_EXIT);
+		
+		System.out.println("프로그램을 종료합니다.");
+	}
+	
+	/**
+	 * 메뉴
+	 */
+	private static final int MENU_ADD_MEMBER = 1;
+	private static final int MENU_REMOVE_MEMBER = 2;
+	private static final int MENU_SEARCH_MEMBER = 3;
+	private static final int MENU_SHOW_MEMBERS_ALL = 4;
+	private static final int MENU_EXIT = 5;
+	
+	/** 메뉴를 출력한다 */
+	private static void printMenu() {
+		System.out.println("=====> 메뉴 <=====");
+		System.out.println("1. 회원 추가");
+		System.out.println("2. 회원 제거");
+		System.out.println("3. 회원 검색");
+		System.out.println("4. 모든 회원 출력");
+		System.out.println("5. 종료");
+		
+		System.out.println("\n선택 : ");
 	}
 }
