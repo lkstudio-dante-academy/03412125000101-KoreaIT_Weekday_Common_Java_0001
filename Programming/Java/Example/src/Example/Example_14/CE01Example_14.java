@@ -14,7 +14,7 @@ package Example.Example_14;
  * 데이터가 관리되는 형태가 단순하기 때문에 적은 데이터를 관리하는데 효율적이다. (+ 즉, 관리되는 데이터의 개수가
  * 많을수록 효율이 떨어진다는 것을 알 수 있다.)
  *
- * Java 선형 컬렉션 종류
+ * Java 주요 선형 컬렉션 종류
  * - 리스트 (List)
  * - 스택 (Stack)
  * - 큐 (Queue)
@@ -67,12 +67,79 @@ package Example.Example_14;
  * 알 수 있다.)
  */
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
+import java.util.Stack;
+
 /**
  * Example 14 (컬렉션 - 1)
  */
 public class CE01Example_14 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		Random oRandom = new Random();
+		
+		ArrayList<Integer> oListValuesA = new ArrayList<Integer>();
+		LinkedList<Integer> oListValuesB = new LinkedList<Integer>();
+		
+		for(int i = 0; i < 10; ++i) {
+			int nVal = oRandom.nextInt(1, 100);
+			
+			oListValuesA.add(nVal);
+			oListValuesB.add(nVal);
+		}
+		
+		System.out.println("=====> 배열 리스트 <=====");
+		
+		for(int i = 0; i < oListValuesA.size(); ++i) {
+			System.out.printf("%d, ", oListValuesA.get(i));
+		}
+		
+		System.out.println("\n\n=====> 연결 리스트 <=====");
+		
+		for(int i = 0; i < oListValuesB.size(); ++i) {
+			System.out.printf("%d, ", oListValuesB.get(i));
+		}
+		
+		/*
+		 * 스택은 다른 컬렉션과 달리 인터페이스를 기준으로 구현 된 컬렉션이 아니라는 것을 알 수 있다. (+ 즉, 스택은
+		 * Java 이전 버전과 호환성을 위해서 존재하는 컬렉션이라는 것을 알 수 있다.)
+		 */
+		Stack<Integer> oStackValues = new Stack<Integer>();
+		Queue<Integer> oQueueValues = new LinkedList<Integer>();
+		
+		System.out.println("\n\n=====> 데이터 입력 순서 <=====");
+		
+		for(int i = 0; i < 10; ++i) {
+			int nVal = oRandom.nextInt(1, 100);
+			System.out.printf("%d, ", nVal);
+			
+			oStackValues.add(nVal);
+			oQueueValues.add(nVal);
+		}
+		
+		System.out.println("\n\n=====> 스택 <=====");
+		
+		while(!oStackValues.isEmpty()) {
+			/*
+			 * 스택은 다른 컬렉션과 달리 특정 데이터를 가져오면 해당 데이터는 스택에서 제거 되는 특징이 존재한다.
+			 * (+ 즉, 스택은 데이터를 제거함으로서 데이터의 접근 순서를 엄격하게 제한 한다는 것을 알 수 있다.)
+			 */
+			System.out.printf("%d, ", oStackValues.pop());
+		}
+		
+		System.out.println("\n\n=====> 큐 <=====");
+		
+		while(!oQueueValues.isEmpty()) {
+			/*
+			 * 큐도 스택과 마찬가지로 특정 데이터를 가져오면 해당 데이터는 큐에서 제거 되는 특징이 존재한다. (+ 즉,
+			 * 큐 인터페이스를 구현하는 모든 컬렉션이 동일한 특징을 지니고 있다는 것을 의미한다.)
+			 */
+			System.out.printf("%d, ", oQueueValues.poll());
+		}
+		
+		System.out.println();
 	}
 }

@@ -69,13 +69,33 @@ public class CP01Practice_01 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		int nMenu = 0;
-		CManager_Member oManager_Member = new CManager_Member();
+		CManager_Member oManager = new CManager_Member();
 		
 		Scanner oScanner = new Scanner(System.in);
 		
 		do {
 			printMenu();
 			nMenu = oScanner.nextInt();
+			
+			switch(nMenu) {
+				case MENU_ADD_MEMBER:
+					addMember(oManager);
+					break;
+					
+				case MENU_REMOVE_MEMBER:
+					removeMember(oManager);
+					break;
+					
+				case MENU_SEARCH_MEMBER:
+					searchMember(oManager);
+					break;
+					
+				case MENU_SHOW_MEMBERS_ALL:
+					showMembers_All(oManager);
+					break;
+			}
+			
+			System.out.println();
 		} while(nMenu != MENU_EXIT);
 		
 		System.out.println("프로그램을 종료합니다.");
@@ -99,6 +119,69 @@ public class CP01Practice_01 {
 		System.out.println("4. 모든 회원 출력");
 		System.out.println("5. 종료");
 		
-		System.out.println("\n선택 : ");
+		System.out.print("\n선택 : ");
+	}
+	
+	/** 회원을 추가한다 */
+	private static void addMember(CManager_Member a_oManager) {
+		Scanner oScanner = new Scanner(System.in);
+		
+		System.out.print("이름 : ");
+		String oName = oScanner.nextLine();
+		
+		System.out.print("전화 번호 : ");
+		String oPNumber = oScanner.nextLine();
+		
+		CMember oMember = a_oManager.findMember(oName);
+		
+		// 회원이 존재 할 경우
+		if(oMember != null) {
+			System.out.printf("\n%s 은(는) 가입 된 회원입니다.\n", oName);
+		} else {
+			oMember = new CMember(oName, oPNumber);
+			a_oManager.addMember(oMember);
+		}
+	}
+	
+	/** 회원을 제거한다 */
+	private static void removeMember(CManager_Member a_oManager) {
+		Scanner oScanner = new Scanner(System.in);
+		
+		System.out.print("이름 : ");
+		String oName = oScanner.nextLine();
+		
+		CMember oMember = a_oManager.findMember(oName);
+		
+		// 회원이 존재 할 경우
+		if(oMember != null) {
+			a_oManager.removeMember(oName);
+			System.out.printf("\n%s 을(를) 제거했습니다.\n", oName);
+		} else {
+			System.out.printf("\n%s 은(는) 존재하지않습니다.\n", oName);
+		}
+	}
+	
+	/** 회원을 탐색한다 */
+	private static void searchMember(CManager_Member a_oManager) {
+		Scanner oScanner = new Scanner(System.in);
+		
+		System.out.print("이름 : ");
+		String oName = oScanner.nextLine();
+		
+		CMember oMember = a_oManager.findMember(oName);
+		
+		// 회원이 존재 할 경우
+		if(oMember != null) {
+			System.out.println("\n=====> 회원 정보 <=====");
+			oMember.showInfo();
+		} else {
+			System.out.printf("\n%s 은(는) 존재하지않습니다.\n", oName);
+		}
+	}
+	
+	/** 회원을 출력한다 */
+	private static void showMembers_All(CManager_Member a_oManager) {
+		System.out.println("\n=====> 모든 회원 정보 <=====");
+		a_oManager.showMembers_All();
 	}
 }

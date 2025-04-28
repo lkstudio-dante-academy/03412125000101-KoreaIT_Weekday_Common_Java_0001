@@ -39,10 +39,10 @@ public class CE01Example_13 {
 			oListValuesB.addVal(oRandom.nextFloat(1.0f, 100.0f));
 		}
 		
-		System.out.println("=====> 리스트 요소 - 정수 <=====");
+		System.out.println("=====> 리스트 - 정수 <=====");
 		printValues(oListValuesA);
 		
-		System.out.println("\n=====> 리스트 요소 - 실수 <=====");
+		System.out.println("\n=====> 리스트 - 실수 <=====");
 		printValues(oListValuesB);
 	}
 	

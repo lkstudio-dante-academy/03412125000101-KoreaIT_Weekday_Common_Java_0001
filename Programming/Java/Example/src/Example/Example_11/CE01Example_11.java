@@ -71,7 +71,7 @@ public class CE01Example_11 {
 			}
 		});
 		
-		System.out.println("\n=====> 리스트 요소 - 오름 차순 정렬 후 <=====");
+		System.out.println("\n=====> 리스트 - 오름 차순 정렬 후 <=====");
 		printValues(oListValues);
 		
 		/*
@@ -83,7 +83,7 @@ public class CE01Example_11 {
 			return a_nRhs - a_nLhs;
 		});
 		
-		System.out.println("\n=====> 리스트 요소 - 내름 차순 정렬 후 <=====");
+		System.out.println("\n=====> 리스트 - 내름 차순 정렬 후 <=====");
 		printValues(oListValues);
 	}
 	

@@ -1,11 +1,19 @@
 package Example.Example_16;
 
+/*
+ * MVC (Model View Controller) 패턴이란?
+ * - 프로그램 구조를 설계하는 방법 중 하나로서 모델 (데이터) 와 뷰 (UI) 를 서로 분리하고 이를 컨트롤러로 제어함으로서
+ * 모델과 뷰의 재사용성을 높이는 설계 방식을 의미한다. (+ 즉, MVC 패턴은 모델과 뷰의 결합도를 낮추는게 핵심이라는 것을
+ * 알 수 있다.)
+ */
+
 /**
- * Example 16 (디자인 패턴)
+ * Example 16 (MVC 패턴)
  */
 public class CE01Example_16 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		CApp oApp = new CApp(960, 540);
+		oApp.run();
 	}
 }

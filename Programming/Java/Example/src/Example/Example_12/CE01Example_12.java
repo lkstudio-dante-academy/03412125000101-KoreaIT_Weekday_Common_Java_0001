@@ -80,7 +80,7 @@ public class CE01Example_12 {
 			oListValuesB.add(oRandom.nextFloat(1.0f, 100.0f));
 		}
 		
-		System.out.println("=====> 리스트 요소 - 정렬 전 <=====");
+		System.out.println("=====> 리스트 - 정렬 전 <=====");
 		
 		printValues(oListValuesA);
 		CE01Example_12.<Float>printValues(oListValuesB);
@@ -88,7 +88,7 @@ public class CE01Example_12 {
 		sortValues(oListValuesA, 0, oListValuesA.size() - 1);
 		CE01Example_12.<Float>sortValues(oListValuesB, 0, oListValuesB.size() - 1);
 		
-		System.out.println("\n=====> 리스트 요소 - 정렬 후 <=====");
+		System.out.println("\n=====> 리스트 - 정렬 후 <=====");
 		
 		printValues(oListValuesA);
 		CE01Example_12.<Float>printValues(oListValuesB);
