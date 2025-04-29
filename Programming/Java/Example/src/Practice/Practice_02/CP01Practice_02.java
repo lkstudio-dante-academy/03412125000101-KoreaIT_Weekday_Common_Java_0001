@@ -1,5 +1,10 @@
 package Practice.Practice_02;
 
+/*
+ * Java 과제 2
+ * - 미로 탈출 경로 계산하기
+ */
+
 /**
  * Practice 2
  */

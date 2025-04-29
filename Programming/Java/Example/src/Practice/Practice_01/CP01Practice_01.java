@@ -1,6 +1,6 @@
 package Practice.Practice_01;
 
-/**
+/*
  * Java 과제 1
  * - 회원 관리 프로그램 제작하기
  * - 회원 정보는 이름과 전화 번호 존재
@@ -140,6 +140,8 @@ public class CP01Practice_01 {
 		} else {
 			oMember = new CMember(oName, oPNumber);
 			a_oManager.addMember(oMember);
+			
+			System.out.printf("\n%s 을(를) 추가했습니다.\n", oName);
 		}
 	}
 	
