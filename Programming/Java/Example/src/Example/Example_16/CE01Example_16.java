@@ -31,6 +31,7 @@ package Example.Example_16;
 public class CE01Example_16 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		CApp oApp = new CApp(480, 320);
+		oApp.run();
 	}
 }
