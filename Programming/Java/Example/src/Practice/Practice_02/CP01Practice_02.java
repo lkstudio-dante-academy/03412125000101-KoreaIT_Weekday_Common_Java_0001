@@ -31,6 +31,12 @@ package Practice.Practice_02;
 public class CP01Practice_02 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		char[][] oMap = new char[][] {
+				{ '#', '#', 'S', '#', '#' },
+				{ '#', ' ', ' ', ' ', '#' },
+				{ '#', ' ', '#', ' ', '#' },
+				{ '#', ' ', 'S', ' ', '#' },
+				{ '#', '#', 'S', 'G', '#' }
+		};
 	}
 }
