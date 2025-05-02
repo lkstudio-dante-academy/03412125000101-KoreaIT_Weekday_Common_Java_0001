@@ -56,7 +56,7 @@ public class CE01Example_11 {
 			oListValues.add(oRandom.nextInt(1, 100));
 		}
 		
-		System.out.println("\n=====> 리스트 요소 <=====");
+		System.out.println("\n=====> 리스트 <=====");
 		printValues(oListValues);
 		
 		/*
