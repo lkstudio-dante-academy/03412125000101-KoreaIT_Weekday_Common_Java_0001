@@ -5,6 +5,9 @@ package Example.Example_17;
  * - CPU 의 작업 시간을 할당 받는 기본 단위를 의미한다. (+ 즉, 프로그램이 실행 되면 메인 쓰레드가 기본적으로
  * 할당 된다는 것을 알 수 있다.)
  *
+ * 프로그램이 실행 되면 CPU 의 작업 시간을 할당 받기 위한 쓰레드가 생성 되며 이를 메인 쓰레드라고 한다. (+ 즉,
+ * 쓰레드가 존재하기 때문에 CPU 에 의해서 명령문이 샐행 된다는 것을 알 수 있다.)
+ *
  * 프로그램은 필요에 따라 쓰레드를 추가적으로 생성하는 것이 가능하며 이렇게 여러 쓰레드를 활용해서 프로그램을
  * 제작하는 것을 멀티 쓰레드 프로그래밍이라고 한다. (+ 즉, 쓰레드를 활용하면 여러 작업을 동시에 처리하는 병렬 처리가
  * 가능하다는 것을 의미한다.)
@@ -56,6 +59,84 @@ package Example.Example_17;
 public class CE01Example_17 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		/*
+		 * Thread 클래스란?
+		 * - 쓰레드를 제어하기 위한 다양한 기능을 제공하는 클래스를 의미한다. (+ 즉, Thread 클래스를 활용하면
+		 * 쓰레드를 중지하는 등의 작업을 처리하는 것이 가능하다.)
+		 *
+		 * Thread 가 동작하기 위해서는 Thread 를 통해 실행 할 진입 메서드가 필요하다. (+ 즉, 진입 메서드를
+		 * 실행하는 쓰레드는 메인 쓰레드가 아니라는 것을 알 수 있다.)
+		 *
+		 * 쓰레드 진입 메서드는 메인 메서드와 마찬가지로 해당 메서드가 종료 되면 쓰레드도 종료 되는 특징이 존재한다.
+		 * (+ 즉, 메인 메서드가 종료 되면 메인 쓰레드가 종료 된다는 것을 알 수 있다.)
+		 */
+		Thread oThreadA = new Thread(CE01Example_17::main_ThreadA);
+		Thread oThreadB = new Thread(CE01Example_17::main_ThreadB);
+		
+		/*
+		 * start 메서드는 쓰레드를 실행 상태로 만드는 역할을 수행한다.
+		 *
+		 * Java 의 쓰레드는 생성이 완료 되고 나면 바로 동작하는 것이 아니라 실행 가능 상태가 되며 start 메서드를
+		 * 호출해야 실행 상태가 되어서 동작하는 특징이 존재한다. (+ 즉, start 메서드를 호출하지 않으면 쓰레드는
+		 * 실행 되지 않는다는 것을 의미한다.)
+		 */
+		oThreadA.start();
+		oThreadB.start();
+		
+		try {
+			/*
+			 * join 메서드는 쓰레드의 종료를 대기하는 역할을 수행한다. (+ 즉, join 메서드를 활용하면
+			 * 특정 쓰레드의 작업 완료를 대기하는 것이 가능하다.)
+			 *
+			 * 쓰레드는 언제든지 CPU 의 작업 시간을 다른 쓰레드에게 빼앗기는 것이 가능하기 때문에
+			 * 특정 작업의 완료 여부를 판단하는 것이 중요하며 이때 join 메서드를 활용하면 된다. (+ 즉,
+			 * join 메서드를 통해 특정 쓰레드의 종료를 대기 함으로서 해당 쓰레드의 작업 완료 여부를
+			 * 대기하는 것이 가능하다.)
+			 */
+			oThreadA.join();
+			oThreadB.join();
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
+		
+		System.out.printf("\n횟수 : %d\n", m_oCounter.getTimes());
+	}
+	
+	private static Object m_oKey = new Object();
+	private static CCounter m_oCounter = new CCounter();
+	
+	/** 쓰레드 A 진입 메서드 */
+	private static void main_ThreadA() {
+		for(int i = 0; i < 100000; ++i) {
+			/*
+			 * synchronized 키워드란?
+			 * - 동기화 처리를 위한 동기화 블럭을 명시 할 수 있는 역할을 수행하는 키워드를 의미한다. (+ 즉,
+			 * synchronized 키워드로 명시 된 블럭 내부에 작성 된 명령문은 작업 완료를 보장 받는다는 것을
+			 * 알 수 있다.)
+			 *
+			 * Java 는 동기화 처리를 위한 뮤텍스와 같은 자원이 필요하며 해당 자원은 Object 객체를 생성하는 것으로
+			 * 획득이 가능하다. (+ 즉, Java 의 모든 객체는 동기화 처리를 위한 자원으로 활용하는 것이 가능하다는 것을
+			 * 알 수 있다.)
+			 *
+			 * 단, 동기화 처리가 빈번 할 경우 내부적으로 쓰레드 전환에 의한 성능 저하가 발생하기 때문에 가능하면
+			 * 동기화 처리가 빈번하게 발생하지 않도록 명령문을 작성하는 것이 중요하다.
+			 */
+			synchronized(m_oKey) {
+				m_oCounter.incrTimes(1);
+			}
+			
+			System.out.println("Thread A 호출");
+		}
+	}
+	
+	/** 쓰레드 B 진입 메서드 */
+	private static void main_ThreadB() {
+		for(int i = 0; i < 100000; ++i) {
+			synchronized(m_oKey) {
+				m_oCounter.incrTimes(1);
+			}
+			
+			System.out.println("Thread B 호출");
+		}
 	}
 }
