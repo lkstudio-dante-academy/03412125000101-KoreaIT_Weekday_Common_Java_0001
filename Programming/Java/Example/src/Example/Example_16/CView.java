@@ -23,8 +23,6 @@ public class CView {
 		
 		this.setupUIs_List();
 		this.setupUIs_Input();
-		
-		CApp.getInst().getWnd().invalidate();
 	}
 	
 	/** 리스트를 반환한다 */

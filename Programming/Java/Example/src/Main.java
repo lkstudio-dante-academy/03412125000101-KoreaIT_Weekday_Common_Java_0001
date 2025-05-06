@@ -30,6 +30,7 @@ import Example.Example_15.CE01Example_15;
 import Example.Example_16.CE01Example_16;
 import Example.Example_17.CE01Example_17;
 import Example.Example_18.CE01Example_18;
+import Example.Example_19.CE01Example_19;
 
 import Practice.Practice_01.CP01Practice_01;
 import Practice.Practice_02.CP01Practice_02;
@@ -95,14 +96,15 @@ public class Main {
 //		CE01Example_14.start(args);
 //		CE01Example_15.start(args);
 //		CE01Example_16.start(args);
-		CE01Example_17.start(args);
+//		CE01Example_17.start(args);
 //		CE01Example_18.start(args);
+		CE01Example_19.start(args);
 
 //		CP01Practice_01.start(args);
 //		CP01Practice_02.start(args);
 		
 //		CT01Training_01.start(args);
 //		CT01Training_02.start(args);
-		CT01Training_03.start(args);
+//		CT01Training_03.start(args);
 	}
 }
