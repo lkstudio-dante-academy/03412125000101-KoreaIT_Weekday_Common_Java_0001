@@ -94,20 +94,11 @@ public class CE01Example_18 {
 		 * - 스트림과 같이 공유 자원을 안전하게 제거해주는 try 블럭을 의미한다. (+ 즉,
 		 * try with resource 블럭에서 생성 한 자원은 해당 블럭이 종료되면 자동으로 제거 된다는 것을 알 수 있다.)
 		 */
-		try(BufferedReader oReader = new BufferedReader(new FileReader(oFileA))) {
-			
-		} catch(Exception oException) {
-			oException.printStackTrace();
-		}
 		
-		try(BufferedInputStream oReader = new BufferedInputStream(new FileInputStream(oFileB))) {
-			/*
-			 * read 메서드는 스트림으로부터 데이터를 읽어 들인 후 읽어 들인 데이터의 바이스 수를 반환하는 특징이
-			 * 존재한다. (+ 즉, read 메서드의 반환 값이 0 이하라는 것은 더이상 읽어 들 일 데이터가 없다는 것을
-			 * 의미한다.)
-			 */
-		} catch(Exception oException) {
-			oException.printStackTrace();
-		}
+		/*
+		 * read 메서드는 스트림으로부터 데이터를 읽어 들인 후 읽어 들인 데이터의 바이스 수를 반환하는 특징이
+		 * 존재한다. (+ 즉, read 메서드의 반환 값이 0 이하라는 것은 더이상 읽어 들 일 데이터가 없다는 것을
+		 * 의미한다.)
+		 */
 	}
 }
