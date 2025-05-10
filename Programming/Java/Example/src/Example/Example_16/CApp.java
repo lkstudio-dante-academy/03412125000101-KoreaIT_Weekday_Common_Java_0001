@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * 어플리케이션
+ * 앱
  */
 public class CApp {
 	private JFrame m_oWnd = null;

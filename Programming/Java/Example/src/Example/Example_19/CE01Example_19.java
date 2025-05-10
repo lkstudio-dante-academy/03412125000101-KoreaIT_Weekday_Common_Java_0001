@@ -42,10 +42,10 @@ public class CE01Example_19 {
 				 * - SQL 구문을 실행하는 역할을 수행하는 메서드를 의미한다. (+ 즉, execute 메서드를 활용하면
 				 * DB 에 SQL 구문을 전달해서 실행 시키는 것이 가능하다.)
 				 */
-				oStatement.execute("CREATE TABLE IF NOT EXISTS MemberTable (Name TEXT PRIMARY KEY, PNumber TEXT)");
+				oStatement.execute("CREATE TABLE IF NOT EXISTS UserTable (ID TEXT PRIMARY KEY, Password TEXT)");
 			}
 			
-			String oSQL_Insert = "INSERT OR IGNORE INTO MemberTable(Name, PNumber) VALUES(?, ?)";
+			String oSQL_Insert = "INSERT OR IGNORE INTO UserTable(ID, Password) VALUES(?, ?)";
 			
 			/*
 			 * PreparedStatement 클래스란?
@@ -54,7 +54,7 @@ public class CE01Example_19 {
 			 * 처리하는 것이 가능하다.)
 			 */
 			try(PreparedStatement oStatement = oSQLite.prepareStatement(oSQL_Insert)) {
-				oStatement.setString(1, "회원 C");
+				oStatement.setString(1, "회원 A");
 				oStatement.setString(2, "1234");
 				
 				/*
@@ -67,7 +67,7 @@ public class CE01Example_19 {
 				 */
 				oStatement.executeUpdate();
 				
-				oStatement.setString(1, "회원 D");
+				oStatement.setString(1, "회원 B");
 				oStatement.setString(2, "1234");
 				
 				oStatement.executeUpdate();

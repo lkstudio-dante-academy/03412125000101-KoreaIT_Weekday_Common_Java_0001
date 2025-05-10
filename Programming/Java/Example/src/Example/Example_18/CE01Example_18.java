@@ -77,6 +77,8 @@ public class CE01Example_18 {
 			 * 최소화 시키는 것이 좋다. (+ 즉, 데이터 입/출력 횟수가 빈번 할 경우
 			 * 내부적으로 병목 현상이 발생 할 수 있다는 것을 의미한다.)
 			 */
+			BufferedWriter oWriterA = new BufferedWriter(new FileWriter(oFileA));
+			BufferedOutputStream oWriterB = new BufferedOutputStream(new FileOutputStream(oFileB));
 			
 			for(int i = 0; i < 10; ++i) {
 				/*
@@ -84,7 +86,15 @@ public class CE01Example_18 {
 				 * - 정수와 같은 이진 데이터와 바이트 배열 간에 변환을 제어하는 클래스를 의미한다. (+ 즉,
 				 * ByteBuffer 클래스를 활용하면 정수를 간단하게 바이트 배열로 변환하는 것이 가능하다.)
 				 */
+				ByteBuffer oBuffer = ByteBuffer.allocate(Integer.BYTES);
+				oBuffer.putInt(i + 1);
+				
+				oWriterA.write("Hello, World!\n");
+				oWriterB.write(oBuffer.array(), 0, oBuffer.array().length);
 			}
+			
+			oWriterA.close();
+			oWriterB.close();
 		} catch(Exception oException) {
 			oException.printStackTrace();
 		}
@@ -94,11 +104,36 @@ public class CE01Example_18 {
 		 * - 스트림과 같이 공유 자원을 안전하게 제거해주는 try 블럭을 의미한다. (+ 즉,
 		 * try with resource 블럭에서 생성 한 자원은 해당 블럭이 종료되면 자동으로 제거 된다는 것을 알 수 있다.)
 		 */
+		try(BufferedReader oReader = new BufferedReader(new FileReader(oFileA))) {
+			System.out.println("=====> 텍스트 <=====");
+			
+			while(oReader.ready()) {
+				String oStr = oReader.readLine();
+				System.out.println(oStr);
+			}
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
 		
-		/*
-		 * read 메서드는 스트림으로부터 데이터를 읽어 들인 후 읽어 들인 데이터의 바이스 수를 반환하는 특징이
-		 * 존재한다. (+ 즉, read 메서드의 반환 값이 0 이하라는 것은 더이상 읽어 들 일 데이터가 없다는 것을
-		 * 의미한다.)
-		 */
+		try(BufferedInputStream oReader = new BufferedInputStream(new FileInputStream(oFileB))) {
+			System.out.println("\n=====> 바이너리 <=====");
+			
+			int nNumBytes = 0;
+			byte[] oBytes = new byte[Integer.BYTES];
+			
+			/*
+			 * read 메서드는 스트림으로부터 데이터를 읽어 들인 후 읽어 들인 데이터의 바이스 수를 반환하는 특징이
+			 * 존재한다. (+ 즉, read 메서드의 반환 값이 0 이하라는 것은 더이상 읽어 들 일 데이터가 없다는 것을
+			 * 의미한다.)
+			 */
+			while((nNumBytes = oReader.read(oBytes, 0, oBytes.length)) > 0) {
+				ByteBuffer oBuffer = ByteBuffer.wrap(oBytes, 0, nNumBytes);
+				System.out.printf("%d, ", oBuffer.getInt());
+			}
+			
+			System.out.println();
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
 	}
 }
