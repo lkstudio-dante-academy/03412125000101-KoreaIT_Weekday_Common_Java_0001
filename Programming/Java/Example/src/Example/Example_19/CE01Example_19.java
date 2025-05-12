@@ -53,13 +53,15 @@ public class CE01Example_19 {
 		 * - DB 를 제어하는 역할을 수행하는 클래스를 의미한다. (+ 즉, Connection 클래스를 활용하면
 		 * DB 에 SQL 구문을 실행하는 등의 작업을 처리하는 것이 가능하다.)
 		 */
-		
+		try(Connection oConnection = DriverManager.getConnection("jdbc:sqlite:P_E01Example_19_01.db")) {
+			String oSQL_CreateTable = "CREATE TABLE IF NOT EXISTS MemberTable(Name TEXT PRIMARY KEY, PNumber TEXT)";
+			
 			/*
 			 * Statement 클래스란?
 			 * - SQL 구문을 실행하고 실행에 대한 결과를 제어하는 역할을 수행하는 클래스를 의미한다. (+ 즉,
 			 * Statement 클래스를 활용하면 DB 에 테이블을 생성하는 등의 명령을 실행하는 것이 가능하다.)
 			 */
-		
+			try(Statement oStatement = oConnection.createStatement()) {
 				/*
 				 * execute 메서드란?
 				 * - SQL 구문을 실행하는 역할을 수행하는 메서드를 의미한다. (+ 즉, execute 메서드를 활용하면
@@ -73,6 +75,10 @@ public class CE01Example_19 {
 				 * 설정 해주는 것이 좋다. (+ 즉, Primary Key 를 설정하면 데이터를 명확하게 식별하는 것이
 				 * 가능하다.)
 				 */
+				oStatement.execute(oSQL_CreateTable);
+			}
+			
+			String oSQL_InsertMember = "INSERT OR IGNORE INTO MemberTable(Name, PNumber) VALUES(?, ?)";
 			
 			/*
 			 * PreparedStatement 클래스란?
@@ -80,6 +86,9 @@ public class CE01Example_19 {
 			 * (+ 즉, PreparedStatement 클래스를 활용하면 Statement 클래스보다 좀 더 빠르게 SQL 구문을
 			 * 처리하는 것이 가능하다.)
 			 */
+			try(PreparedStatement oStatement = oConnection.prepareStatement(oSQL_InsertMember)) {
+				oStatement.setString(1, "회원 A");
+				oStatement.setString(2, "1234");
 				
 				/*
 				 * executeUpdate 메서드란?
@@ -89,7 +98,17 @@ public class CE01Example_19 {
 				 * 처리하는 것이 가능하다. (+ 즉, executeUpdate 메서드는 데이터와 SQL 구문을
 				 * 동적으로 바인딩하는 기능을 제공한다는 것을 알 수 있다.)
 				 */
+				oStatement.executeUpdate();
+				
+				oStatement.setString(1, "회원 B");
+				oStatement.setString(2, "1234");
+				
+				oStatement.executeUpdate();
+			}
 			
+			String oSQL_Query = "SELECT * FROM MemberTable";
+			
+			try(Statement oStatement = oConnection.createStatement()) {
 				/*
 				 * ResultSet 클래스란?
 				 * - SQL 구문 중 SELECT 명령문을 실행 한 결과를 제어하는 역할을 수행하는 클래스를 의미한다. (+ 즉,
@@ -102,5 +121,17 @@ public class CE01Example_19 {
 				 * - SQL 구문 중 SELECT 명령문을 실행하고 실행에 대한 결과를 반환하는 메서드를 의미한다. (+ 즉,
 				 * executeQuery 메서드를 활용하면 DB 로부터 데이터를 가져오는 것이 가능하다.)
 				 */
+				ResultSet oResult = oStatement.executeQuery(oSQL_Query);
+				
+				System.out.println("=====> 모든 회원 정보 <=====");
+				
+				while(oResult.next()) {
+					System.out.printf("이름 : %s\n", oResult.getString(1));
+					System.out.printf("전화 번호 : %s\n\n", oResult.getString(2));
+				}
+			}
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
 	}
 }

@@ -10,6 +10,11 @@ package Training.Training_04;
  * - 스탯은 공격력과 방어력 2 개 존재 (+ 무기를 구입하면 공격력 증가)
  */
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 /**
@@ -18,14 +23,28 @@ import java.util.Scanner;
 public class CT01Training_04 {
 	/** 초기화 */
 	public static void start(String[] args) {
+		File oFile = new File("P_T01Training_04_01.bin");
 		CPlayer oPlayer = new CPlayer(50, 10, 5);
+		
 		Scanner oScanner = new Scanner(System.in);
 		
-		System.out.print("플레이어 소지 금액 입력 : ");
-		oPlayer.setMoney(oScanner.nextInt());
+		try {
+			// 파일이 존재 할 경우
+			if(oFile.exists()) {
+				try(ObjectInputStream oReader = new ObjectInputStream(new FileInputStream(oFile))) {
+					oPlayer = (CPlayer)oReader.readObject();
+				}
+			} else {
+				System.out.print("플레이어 초기 소지 금액 입력 : ");
+				oPlayer.setMoney(oScanner.nextInt());
+				
+				System.out.println();
+			}
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
 		
 		int nMenu = 0;
-		System.out.println();
 		
 		do {
 			printMenu_Main();
@@ -43,6 +62,12 @@ public class CT01Training_04 {
 			
 			System.out.println();
 		} while(nMenu != MAIN_MENU_EXIT);
+		
+		try(ObjectOutputStream oWriter = new ObjectOutputStream(new FileOutputStream(oFile))) {
+			oWriter.writeObject(oPlayer);
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
 	}
 	
 	/**
@@ -64,11 +89,13 @@ public class CT01Training_04 {
 	
 	/** 상점 방문 메뉴를 처리한다 */
 	private static void handleOnMenu_Store(CPlayer a_oPlayer) {
-		// Do Something
+		CStore oStore = new CStore();
+		oStore.visit(a_oPlayer);
 	}
 	
 	/** 던전 입장 메뉴를 처리한다 */
 	private static void handleOnMenu_Dungeon(CPlayer a_oPlayer) {
-		// Do Something
+		CDungeon oDungeon = new CDungeon();
+		oDungeon.enter(a_oPlayer);
 	}
 }

@@ -1,12 +1,19 @@
 package Training.Training_04;
 
+import java.io.Serializable;
+
 /**
  * 유닛
  */
-public class CUnit {
+public class CUnit implements Serializable {
 	private int m_nHp = 0;
 	private int m_nAtk = 0;
 	private int m_nDef = 0;
+	
+	/** 생성자 */
+	public CUnit() {
+		this(0, 0, 0);
+	}
 	
 	/** 생성자 */
 	public CUnit(int a_nHp, int a_nAtk, int a_nDef) {
@@ -18,6 +25,21 @@ public class CUnit {
 	/** 공격력을 반환한다 */
 	public int getAtk() {
 		return m_nAtk;
+	}
+	
+	/** 기본 체력을 반환한다 */
+	public int getHp_Standard() {
+		return m_nHp;
+	}
+	
+	/** 기본 공격력을 반환한다 */
+	public int getAtk_Standard() {
+		return m_nAtk;
+	}
+	
+	/** 기본 방어력을 반환한다 */
+	public int getDef_Standard() {
+		return m_nDef;
 	}
 	
 	/** 대상을 공격한다 */
@@ -32,9 +54,14 @@ public class CUnit {
 /**
  * 플레이어
  */
-class CPlayer extends CUnit {
+class CPlayer extends CUnit implements Serializable {
 	private int m_nMoney = 0;
 	private CWeapon m_oWeapon_Equip = null;
+	
+	/** 생성자 */
+	public CPlayer() {
+		this(0, 0, 0);
+	}
 	
 	/** 생성자 */
 	public CPlayer(int a_nHp, int a_nAtk, int a_nDef) {

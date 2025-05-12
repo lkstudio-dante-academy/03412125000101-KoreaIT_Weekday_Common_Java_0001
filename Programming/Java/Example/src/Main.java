@@ -100,7 +100,7 @@ public class Main {
 //		CE01Example_16.start(args);
 //		CE01Example_17.start(args);
 //		CE01Example_18.start(args);
-//		CE01Example_19.start(args);
+		CE01Example_19.start(args);
 
 //		CP01Practice_01.start(args);
 //		CP01Practice_02.start(args);
@@ -108,6 +108,6 @@ public class Main {
 //		CT01Training_01.start(args);
 //		CT01Training_02.start(args);
 //		CT01Training_03.start(args);
-		CT01Training_04.start(args);
+//		CT01Training_04.start(args);
 	}
 }
