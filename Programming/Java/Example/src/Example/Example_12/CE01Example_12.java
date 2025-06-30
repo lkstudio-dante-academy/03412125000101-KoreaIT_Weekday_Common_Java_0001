@@ -62,6 +62,7 @@ package Example.Example_12;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -71,27 +72,23 @@ public class CE01Example_12 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		Random oRandom = new Random();
-		
-		ArrayList<Integer> oListValuesA = new ArrayList<Integer>();
-		ArrayList<Float> oListValuesB = new ArrayList<Float>();
+		List<Integer> oListValues = new ArrayList<>();
 		
 		for(int i = 0; i < 10; ++i) {
-			oListValuesA.add(oRandom.nextInt(1, 100));
-			oListValuesB.add(oRandom.nextFloat(1.0f, 100.0f));
+			oListValues.add(oRandom.nextInt(1, 100));
 		}
 		
 		System.out.println("=====> 리스트 - 정렬 전 <=====");
+		printValues(oListValues);
 		
-		printValues(oListValuesA);
-		CE01Example_12.<Float>printValues(oListValuesB);
-		
-		sortValues(oListValuesA, 0, oListValuesA.size() - 1);
-		CE01Example_12.<Float>sortValues(oListValuesB, 0, oListValuesB.size() - 1);
-		
+		sortValues(oListValues, 0, oListValues.size() - 1);
 		System.out.println("\n=====> 리스트 - 정렬 후 <=====");
 		
-		printValues(oListValuesA);
-		CE01Example_12.<Float>printValues(oListValuesB);
+		/*
+		 * 아래와 같이 제네릭 형식 인자의 자료형을 직접 명시하는 것이 가능하다. (+ 즉,
+		 * 제네릭 형식 인자의 자료형을 직접 명시함으로서 가독성을 향상 시키는 것이 가능하다.)
+		 */
+		CE01Example_12.<Integer>printValues(oListValues);
 	}
 	
 	/*
@@ -99,7 +96,7 @@ public class CE01Example_12 {
 	 * 제한하는 것이 가능하다.
 	 */
 	/** 값을 정렬한다 */
-	private static <T extends Comparable<T>> void sortValues(ArrayList<T> a_oListValuesA, int a_nLeft, int a_nRight) {
+	private static <T extends Comparable<T>> void sortValues(List<T> a_oListValues, int a_nLeft, int a_nRight) {
 		// 값 정렬이 불가능 할 경우
 		if(a_nLeft >= a_nRight) {
 			return;
@@ -107,31 +104,31 @@ public class CE01Example_12 {
 		
 		int nMiddle = (a_nLeft + a_nRight) / 2;
 		
-		sortValues(a_oListValuesA, a_nLeft, nMiddle);
-		sortValues(a_oListValuesA, nMiddle + 1, a_nRight);
+		sortValues(a_oListValues, a_nLeft, nMiddle);
+		sortValues(a_oListValues, nMiddle + 1, a_nRight);
 		
 		int nLeft = a_nLeft;
 		int nRight = nMiddle + 1;
 		
-		ArrayList<T> oListValuesA_Temp = new ArrayList<T>();
+		List<T> oListValues_Temp = new ArrayList<>();
 		
 		while(true) {
 			while(nLeft <= nMiddle) {
 				// 정렬이 불가능 할 경우
-				if(a_oListValuesA.get(nLeft).compareTo(a_oListValuesA.get(nRight)) > 0) {
+				if(a_oListValues.get(nLeft).compareTo(a_oListValues.get(nRight)) > 0) {
 					break;
 				}
 				
-				oListValuesA_Temp.add(a_oListValuesA.get(nLeft++));
+				oListValues_Temp.add(a_oListValues.get(nLeft++));
 			}
 			
 			while(nRight <= a_nRight) {
 				// 정렬이 불가능 할 경우
-				if(a_oListValuesA.get(nRight).compareTo(a_oListValuesA.get(nLeft)) > 0) {
+				if(a_oListValues.get(nRight).compareTo(a_oListValues.get(nLeft)) > 0) {
 					break;
 				}
 				
-				oListValuesA_Temp.add(a_oListValuesA.get(nRight++));
+				oListValues_Temp.add(a_oListValues.get(nRight++));
 			}
 			
 			// 정렬이 불가능 할 경우
@@ -141,23 +138,23 @@ public class CE01Example_12 {
 		}
 		
 		while(nLeft <= nMiddle) {
-			oListValuesA_Temp.add(a_oListValuesA.get(nLeft++));
+			oListValues_Temp.add(a_oListValues.get(nLeft++));
 		}
 		
 		while(nRight <= a_nRight) {
-			oListValuesA_Temp.add(a_oListValuesA.get(nRight++));
+			oListValues_Temp.add(a_oListValues.get(nRight++));
 		}
 		
-		for(int i = 0; i < oListValuesA_Temp.size(); ++i) {
-			T tVal = oListValuesA_Temp.get(i);
-			a_oListValuesA.set(a_nLeft + i, tVal);
+		for(int i = 0; i < oListValues_Temp.size(); ++i) {
+			T tVal = oListValues_Temp.get(i);
+			a_oListValues.set(a_nLeft + i, tVal);
 		}
 	}
 	
 	/** 값을 출력한다 */
-	private static <T> void printValues(ArrayList<T> a_oListValuesA) {
-		for(int i = 0; i < a_oListValuesA.size(); ++i) {
-			System.out.printf("%s, ", a_oListValuesA.get(i));
+	private static <T> void printValues(List<T> a_oListValues) {
+		for(int i = 0; i < a_oListValues.size(); ++i) {
+			System.out.printf("%s, ", a_oListValues.get(i));
 		}
 		
 		System.out.println();

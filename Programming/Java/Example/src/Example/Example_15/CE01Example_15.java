@@ -64,7 +64,7 @@ public class CE01Example_15 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		Random oRandom = new Random();
-		HashSet<Integer> oSetValues = new HashSet<Integer>();
+		HashSet<Integer> oSetValues = new HashSet<>();
 		
 		System.out.println("=====> 데이터 입력 순서 <=====");
 		
@@ -86,7 +86,7 @@ public class CE01Example_15 {
 		}
 		
 		System.out.printf("\n\n개수 : %d\n", oSetValues.size());
-		HashMap<String, Integer> oMapValues = new HashMap<String, Integer>();
+		HashMap<String, Integer> oMapValues = new HashMap<>();
 		
 		for(int i = 0; i < 10; ++i) {
 			String oKey = String.format("Key_%02d", i + 1);

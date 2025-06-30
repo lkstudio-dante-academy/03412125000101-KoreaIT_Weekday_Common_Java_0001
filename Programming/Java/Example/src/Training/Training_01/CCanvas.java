@@ -1,12 +1,13 @@
 package Training.Training_01;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 캔버스
  */
 public class CCanvas {
-	private ArrayList<CShape> m_oShapes = new ArrayList<CShape>();
+	private List<CShape> m_oShapes = new ArrayList<>();
 	
 	/** 도형을 추가한다 */
 	public void addShape(CShape a_oShape) {

@@ -2,12 +2,13 @@ package Example.Example_16;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 모델
  */
 public class CModel {
-	private ArrayList<CBook> m_oListBooks = new ArrayList<>();
+	private List<CBook> m_oListBooks = new ArrayList<>();
 	private DefaultListModel<Object> m_oListModel = new DefaultListModel<>();
 	
 	/** 리스트 모델을 반환한다 */

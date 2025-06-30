@@ -38,6 +38,7 @@ package Example.Example_11;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -50,7 +51,7 @@ public class CE01Example_11 {
 		oLambda.writeVal();
 		
 		Random oRandom = new Random();
-		ArrayList<Integer> oListValues = new ArrayList<Integer>();
+		List<Integer> oListValues = new ArrayList<>();
 		
 		for(int i = 0; i < 10; ++i) {
 			oListValues.add(oRandom.nextInt(1, 100));
@@ -111,7 +112,7 @@ public class CE01Example_11 {
 	}
 	
 	/** 값을 정렬한다 */
-	private static void sortValues(ArrayList<Integer> a_oListValues, ICompare a_oCompare) {
+	private static void sortValues(List<Integer> a_oListValues, ICompare a_oCompare) {
 		for(int i = 0; i < a_oListValues.size(); ++i) {
 			for(int j = 0; j < a_oListValues.size() - (i + 1); ++j) {
 				int nLhs = a_oListValues.get(j);
@@ -129,7 +130,7 @@ public class CE01Example_11 {
 	}
 	
 	/** 값을 출력한다 */
-	private static void printValues(ArrayList<Integer> a_oListValues) {
+	private static void printValues(List<Integer> a_oListValues) {
 		for(int i = 0; i < a_oListValues.size(); ++i) {
 			System.out.printf("%d, ", a_oListValues.get(i));
 		}

@@ -69,6 +69,7 @@ package Example.Example_14;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Random;
 import java.util.Stack;
@@ -81,8 +82,8 @@ public class CE01Example_14 {
 	public static void start(String[] args) {
 		Random oRandom = new Random();
 		
-		ArrayList<Integer> oListValuesA = new ArrayList<Integer>();
-		LinkedList<Integer> oListValuesB = new LinkedList<Integer>();
+		List<Integer> oListValuesA = new ArrayList<>();
+		LinkedList<Integer> oListValuesB = new LinkedList<>();
 		
 		for(int i = 0; i < 10; ++i) {
 			int nVal = oRandom.nextInt(1, 100);
@@ -107,8 +108,8 @@ public class CE01Example_14 {
 		 * 스택은 다른 컬렉션과 달리 인터페이스를 기준으로 구현 된 컬렉션이 아니라는 것을 알 수 있다. (+ 즉, 스택은
 		 * Java 이전 버전과 호환성을 위해서 존재하는 컬렉션이라는 것을 알 수 있다.)
 		 */
-		Stack<Integer> oStackValues = new Stack<Integer>();
-		Queue<Integer> oQueueValues = new LinkedList<Integer>();
+		Stack<Integer> oStackValues = new Stack<>();
+		Queue<Integer> oQueueValues = new LinkedList<>();
 		
 		System.out.println("\n\n=====> 데이터 입력 순서 <=====");
 		
